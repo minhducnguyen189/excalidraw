@@ -1,5 +1,4 @@
 version: "3.8"
-
 services:
   excalidraw:
     build:
@@ -8,8 +7,8 @@ services:
         - NODE_ENV=development
     container_name: excalidraw
     ports:
-      - "3001:80"
-    restart: on-failure
+      - 3001:80
+    restart: always
     stdin_open: true
     healthcheck:
       disable: true
@@ -20,6 +19,6 @@ services:
       - ./package.json:/opt/node_app/package.json
       - ./yarn.lock:/opt/node_app/yarn.lock
       - notused:/opt/node_app/app/node_modules
-
 volumes:
-  notused:
+  notused: null
+networks: {}
